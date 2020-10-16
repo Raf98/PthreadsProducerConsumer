@@ -1,4 +1,4 @@
-<h1>Compilação e Execução
+<h1>Compilação e Execução</h1>
 
 Para compilar o programa em ambiente Linux, deve ser executado o seguinte
 comando no terminal, na pasta em que o arquivo .cpp está:
@@ -8,7 +8,7 @@ comando no terminal, na pasta em que o arquivo .cpp está:
 Após compilado, basta executar o programa no terminal, utilizando o seguinte
 formato:
 
-__./prodCons *v p c t* __
+**./prodCons *v p c t***
   
 onde:
 
