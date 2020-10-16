@@ -35,9 +35,15 @@ pthread_cond_t condC;
 
 int main(int argc, char const *argv[])
 {
-    //clock_t time = clock();
+    clock_t time = clock();
 
     //cout << (float)time/CLOCKS_PER_SEC << " seconds" << endl;
+    
+    if(argc != 5)
+	{
+		std::cerr << "ERROR: Input should be:./prodCons <v> <p> <c> <t>" << endl;
+		exit(1);
+	}
 
     Data*data = new Data();
 
@@ -48,11 +54,11 @@ int main(int argc, char const *argv[])
     c = atoi(argv[3]);                              
     t = atoi(argv[4]);                              
 
-    //cout << "V:" << data->v << endl;              //numero de iteracoes V
+    cout << "V:" << data->v << endl;              //numero de iteracoes V
     
-    //cout << "P:" << p << endl;                    //numero de produtores p
-    //cout << "C:" << c << endl;                    //numero de consumidores c
-    //cout << "T:" << t << endl;                    //tamanho do buffer t
+    cout << "P:" << p << endl;                    //numero de produtores p
+    cout << "C:" << c << endl;                    //numero de consumidores c
+    cout << "T:" << t << endl << endl;                    //tamanho do buffer t
 
     pthread_t producers[p];
     pthread_t consumers[c];
@@ -103,8 +109,8 @@ int main(int argc, char const *argv[])
     delete data;
 
     
-    //time = clock() - time;
-    //cout << (float)time/CLOCKS_PER_SEC << " seconds" << endl;
+    time = clock() - time;
+    cout << "\n\nTotal execution time: " << (float)time/CLOCKS_PER_SEC << " seconds" << endl;
 
     return 0;
 }
@@ -160,6 +166,8 @@ void *insertBuffer(void* dataFormal)
         pthread_mutex_unlock(&mutex);
         /*fim da secao critica*/
     }
+    
+    return 0;
 }
 
 
